@@ -1,15 +1,6 @@
-# "ADS-B Out" add-on for SoftRF-Emu, Stratux, etc...
+# ADS-B Out Implementation for 1240MHz for Testing
 
-This repository contains "ADS-B Out" encoder for Tx-capable SDR hardware.
-
-It is currently written in architecture independent Python language and can be used as an add-on for existing
-open source "ADS-B In" solutions. One known good example is [Stratux](https://github.com/cyoung/stratux).
-
-ES (1090 MHz) variant of ADS-B surveillance technology is being considered here.<br>
-For UAT ADS-B (978 MHz) option, please, visit this repository: https://github.com/lyusupov/UAT-test-signal
-
-## Disclaimer
-The source code is published for academic purpose only.
+Written/Edited for python3
 
 ## Instructions
 1. Execute *ADSB_Encoder.py* script with `<ICAO>` `<Latitude>` `<Longitude>` `<Altitude>` arguments:
@@ -45,18 +36,8 @@ fclose(fd) done
 exit
 $
 ```
-## Validation
-```
-$ sudo dump1090 --net --freq 868000000
-...
-```
-![](https://github.com/lyusupov/ADSB-Out/raw/master/documents/images/dump1090.JPG)
+## All-In-One
 
-## References
-1. "*Gr-Air-Modes*", **Nick Foster**, 2012
-2. "*EXPLOITING THE AUTOMATIC DEPENDENT SURVEILLANCE BROADCAST SYSTEM VIA FALSE TARGET INJECTION*", **Domenic Magazu III**, 2012
-3. "*ADS-B out by HACKRF and received over the air by rtl-sdr dongle and dump1090*", **Jiao Xianjun**, 2014
-4. "*Ghost in the Air(Trafﬁc): On insecurity of ADS-B protocol and practical attacks on ADS-B devices*", **Andrei Costin and Aurelien Francillon**, 2015
-5. "*ADS-B Decoding Guide*", **Junzi Sun**, 2017
+python3 errorplane.py  <ICAO> <Start Lat.> <Start Long.> <Start Alt.> <End Lat.> <End Long.> <End Alt.> <Speed (mph)>
 
 
