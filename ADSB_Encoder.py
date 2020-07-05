@@ -24,11 +24,18 @@
 # 
 
 import math
+import struct
+
+def floatToBits(f):
+    s = struct.pack('>f', f)
+    return struct.unpack('>l', s)[0]
 
 def encode_alt_modes(alt, bit13):
     mbit = False
     qbit = True
     encalt = (int(alt) + 1000) / 25
+
+    encalt = floatToBits(encalt)
 
     if bit13 is True:
         tmp1 = (encalt & 0xfe0) << 2
@@ -75,6 +82,7 @@ def cpr_encode(lat, lon, ctype, surface):
     if surface is True:
         scalar = 2.**19
     else:
+        #CPR latitude and longitude have a max size of 17 bytes
         scalar = 2.**17
 
     #encode using 360 constant for segment size.
@@ -397,11 +405,11 @@ if __name__ == "__main__":
     
     argc = len(argv)
     if argc != 5:
-      print
-      print 'Usage: '+ argv[0] +'  <ICAO> <Latitude> <Longitude> <Altitude>'
-      print
-      print '    Example: '+ argv[0] +'  0xABCDEF 12.34 56.78 9999.0'
-      print
+      print()
+      print('Usage: '+ argv[0] +'  <ICAO> <Latitude> <Longitude> <Altitude>')
+      print()
+      print('    Example: '+ argv[0] +'  0xABCDEF 12.34 56.78 9999.0')
+      print()
       exit(2)
 
     icao = int(argv[1], 16)
