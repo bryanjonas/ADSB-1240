@@ -1,4 +1,4 @@
-# ADS-B Out Implementation for 1240MHz for Testing
+# ADS-B Out Implementation for 915MHz for Testing
 
 Written/Edited for python3
 
@@ -17,7 +17,7 @@ $
 ```
 3. Transmit the signal into air:
 ```
-$ hackrf_transfer -t Samples_256K.iq8s -f 868000000 -s 2000000 -x 10
+$ hackrf_transfer -t Samples_256K.iq8s -f 915000000 -s 2000000 -x 10
 ```
 ## All-In-One
 ```
